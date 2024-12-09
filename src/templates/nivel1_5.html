@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+
+
+{% block css_js %}
+<!-- CSS y Js de Ardora -->
+<link type="text/css" href="{{url_for('static', filename='css/ardora/ardoraSopa.css')}}" rel="stylesheet" />
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_5/jquery.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_5/jquery-ui.min.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_5/jquery.ui.touch-punch.min.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_5/ardoraScorm.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_5/ardoraTab.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_5/ardoraSopa.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_5/ardoraSopaCFG.js')}}"></script>
+{% endblock %}
+
+
+{% block active %}
+<div class="list-group" id="myList" role="tablist">
+    <a class="nav-link" href="{{ url_for('nivel1_1') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Conceptos introductorios
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_2') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Lenguajes Formales
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_3') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Expresiones Regulares
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_4') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Gramáticas formales
+    </a>
+    <a class="nav-link active" href="{{ url_for('nivel1_5') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Caracterización de una Gramática
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_6') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Jerarquía de Chomsky
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_7') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Forma Normal de Chomsky
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_8') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Forma Normal de Greibach
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_9') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Árboles de derivación
+    </a>
+    <a class="nav-link" href="{{ url_for('examen_1') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Examen Nivel 1
+    </a>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<!-- Contenido -->
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Caracterización de una Gramática</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Nivel 1: Gramáticas Formales en la Computación</li>
+            </ol>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Caracterización de una gramática</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Se refiere a la forma precisa en la que se define y clasifica una gramática formal. En este
+                        contexto, se establece cómo se describe la gramática, cómo se define su capacidad para generar
+                        lenguajes, y cómo se relaciona con otros modelos formales de la teoría de la computación, como
+                        los autómatas.
+                    </p>
+                    <p>
+                        Una gramática formal puede ser caracterizada por varios aspectos fundamentales. La forma en que
+                        se estructura una gramática, cómo se clasifica según su tipo y cómo se utiliza para generar
+                        lenguajes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Propiedades de las Gramáticas Formales</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        <b>Generación de Lenguajes:</b> Una gramática formal genera un lenguaje al aplicar sucesivamente
+                        las
+                        reglas de producción a partir del símbolo inicial S hasta que se llega a una cadena formada solo
+                        por símbolos terminales. El conjunto de todas las
+                        cadenas generadas por una gramática es el lenguaje que define.
+                    </p>
+                    <p>
+                        <b>Ambigüedad:</b> Una gramática es ambigua si existe al menos una cadena que puede generarse
+                        de más de una manera, es decir, que tiene más de una derivación o más de un árbol de análisis.
+                        En cambio, una gramática es no ambigua si cada cadena generada tiene una única derivación
+                        posible.
+                    </p>
+                    <p>
+                        <b>Determinismo:</b> En algunos casos, las gramáticas pueden ser deterministas, lo que significa
+                        que a partir de cualquier cadena y dado un símbolo, solo hay una opción clara de qué regla
+                        aplicar. Las gramáticas regulares y las gramáticas libres de contexto deterministas son ejemplos
+                        de gramáticas deterministas.
+                    </p>
+                    <p>
+                        <b>Decibilidad:</b> Dependiendo del tipo de gramática, se pueden dar algoritmos que decidan si
+                        una cadena pertenece al lenguaje generado por una gramática. En gramáticas tipo 3 (regulares),
+                        por ejemplo, este proceso es rápido y fácil, ya que los autómatas finitos pueden reconocer
+                        lenguajes regulares en tiempo lineal.
+                    </p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chess-bishop me-1"></i>
+                    <b>Actividad 1.5</b>
+                </div>
+                <div class="card-body">
+                    <!-- Actividad Ardora -->
+                    <div id="ardoraMain">
+                        <div id="ardoraEnu"><SPAN style="font-size:12px;color:#000000">encuenra las palabras de la sopas
+                                de letras que estan
+                                en el cuadro:</SPAN></div>
+                        <div id="ardoraAct">
+                            <canvas id="ardoraActBoard" width="990px" height="600px"></canvas>
+                            <canvas id="ardoraActSel" width="990px" height="600px"></canvas>
+                            <svg id="s_pointer" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" width="558px" height="350px">
+                                <line id="vertical" x1="0" y1="0" x2="0" y2="350"
+                                    style="stroke:rgb(255,0,0);stroke-width:1" />
+                                <line id="horizontal" x1="0" y1="0" x2="558" y2="0"
+                                    style="stroke:rgb(255,0,0);stroke-width:1" />
+                                <circle id="c_point" cx="0" cy="0" r="5"
+                                    style="opacity:0.1;stroke:rgb(255,0,0);stroke-width:2" />
+                            </svg>
+                            <canvas id="ardoraActCanvas" width="2px" height="2px"></canvas>
+                        </div>
+                        <div id="ardoraTab">
+                        </div>
+                    </div>
+                    <div id="ardoraAlumSCORM">
+                        <p></p>
+                    </div>
+                    <!-- Fin Actividad Ardora -->
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<!-- Fin del Contenido -->
+{% endblock %}

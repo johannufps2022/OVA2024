@@ -1,0 +1,175 @@
+{% extends "layout.html" %}
+
+
+{% block css_js %}
+<!-- CSS y Js de Ardora -->
+<link type="text/css" href="{{url_for('static', filename='css/ardora/ardoraTest.css')}}" rel="stylesheet" />
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/jquery.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/jquery-ui.min.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/jquery.ui.touch-punch.min.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/ardoraScorm.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/ardoraTab.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/ardoraTestCFG.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/ardoraTest.js')}}"></script>
+{% endblock %}
+
+
+{% block active %}
+<div class="list-group" id="myList" role="tablist">
+    <a class="nav-link" href="{{ url_for('nivel1_1') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Conceptos introductorios
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_2') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Lenguajes Formales
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_3') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Expresiones Regulares
+    </a>
+    <a class="nav-link active" href="{{ url_for('nivel1_4') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Gramáticas formales
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_5') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Caracterización de una Gramática
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_6') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Jerarquía de Chomsky
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_7') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Forma Normal de Chomsky
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_8') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Forma Normal de Greibach
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_9') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Árboles de derivación
+    </a>
+    <a class="nav-link" href="{{ url_for('examen_1') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Examen Nivel 1
+    </a>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<!-- Contenido -->
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Gramáticas Formales</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Nivel 1: Gramáticas Formales en la Computación</li>
+            </ol>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>¿Qué es una Gramática Formal?</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Una gramática formal es un conjunto de reglas que describe cómo se pueden generar cadenas de un
+                        lenguaje. Cada regla tiene una forma particular, y el conjunto de todas las reglas define de
+                        manera precisa un lenguaje.
+                    </p><br>
+                    <p>
+                        Formalmente, una gramática es una cuádruple G=(V,Σ,R,S), donde:
+                    </p>
+                    <p>
+                        <b>V</b> es un conjunto finito de símbolos llamados variables o no terminales. Estos símbolos
+                        representan las partes de una cadena que aún no se han expandido completamente.
+                    </p>
+                    <p>
+                        <b>Σ</b> es un conjunto finito de símbolos llamados alfabeto o terminales. Estos son los
+                        símbolos con
+                        los que se forman las cadenas del lenguaje. Los terminales son los "bloques básicos" que no se
+                        pueden descomponer más.
+                    </p>
+                    <p>
+                        <b>R</b>
+                        es un conjunto de reglas de producción o producciones. Cada regla de producción describe cómo
+                        una
+                        variable puede ser reemplazada por una secuencia de símbolos, que pueden ser tanto terminales
+                        como
+                        no terminales.
+                    </p>
+                    <p>
+                        <b>S</b> es el símbolo inicial, uno de los elementos de
+                        V, que representa el punto de partida para generar las cadenas del lenguaje.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Tipos de Gramáticas Formales</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Existen diferentes tipos de gramáticas formales, clasificadas según el poder de las reglas de
+                        producción. La clasificación más conocida es la Jerarquía de Chomsky, que divide las gramáticas
+                        en cuatro tipos, desde las más simples hasta las más complejas:
+                    </p>
+                    <p>
+                        <b>1.</b> Gramáticas Tipo 0 (Gramáticas No Restringidas).
+                    </p>
+                    <p>
+                        <b>2.</b> Gramáticas Tipo 1 (Gramáticas Sensibles al Contexto).
+                    </p>
+                    <p>
+                        <b>3.</b> Gramáticas Tipo 2 (Gramáticas Libres de Contexto).
+                    </p>
+                    <p>
+                        <b>4.</b> Gramáticas Tipo 3 (Gramáticas Regulares).
+                    </p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chess-bishop me-1"></i>
+                    <b>Actividad 1.4</b>
+                </div>
+                <div class="card-body">
+                    <!-- Actividad Ardora -->
+                    <div id="ardoraMain">
+                        <div id="ardoraEnu"><SPAN style="font-size:12px;color:#000000">reponde las preguntas de falso y
+                                verdadero del
+                                cuestionario correctamente </SPAN></div>
+                        <div id="ardoraAct">
+                            <div id="ardoraTag"></div>
+                            <div id="ardoraChecks"></div>
+                            <canvas id="ardoraActCanvas" width="2px" height="2px"></canvas>
+                        </div>
+                        <div id="ardoraTab">
+                            <div id="buttonOk" tabindex="0"><canvas id="buttonOkCanvas" width="70" height="70"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ardoraAlumSCORM">
+                        <p></p>
+                    </div>
+                    <!-- Fin Actividad Ardora -->
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<!-- Fin del Contenido -->
+{% endblock %}

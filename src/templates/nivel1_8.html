@@ -1,0 +1,236 @@
+{% extends "layout.html" %}
+
+
+{% block css_js %}
+<!-- CSS y Js de Ardora -->
+<link type="text/css" href="{{url_for('static', filename='css/ardora/ardoraRel.css')}}" rel="stylesheet" />
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_7/jquery.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_7/jquery-ui.min.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_7/jquery.ui.touch-punch.min.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_7/ardoraScorm.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_7/ardoraTab.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_7/ardoraRel.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_7/ardoraRelCFG.js')}}"></script>
+{% endblock %}
+
+
+{% block active %}
+<div class="list-group" id="myList" role="tablist">
+    <a class="nav-link" href="{{ url_for('nivel1_1') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Conceptos introductorios
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_2') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Lenguajes Formales
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_3') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Expresiones Regulares
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_4') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Gramáticas formales
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_5') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Caracterización de una Gramática
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_6') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Jerarquía de Chomsky
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_7') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Forma Normal de Chomsky
+    </a>
+    <a class="nav-link active" href="{{ url_for('nivel1_8') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Forma Normal de Greibach
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_9') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Árboles de derivación
+    </a>
+    <a class="nav-link" href="{{ url_for('examen_1') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Examen Nivel 1
+    </a>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<!-- Contenido -->
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Forma Normal de Greibach</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Nivel 1: Gramáticas Formales en la Computación</li>
+            </ol>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Forma Normal de Greibach (FNG)</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Es una forma estándar en la que se pueden escribir las reglas de producción de una gramática
+                        libre de contexto (GFC). Fue introducida por Greibach en 1965 y es particularmente útil en el
+                        análisis de lenguajes formales, especialmente para construir autómatas de pila deterministas.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Reglas de la Forma Normal de Greibach</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Una gramática está en Forma Normal de Greibach si todas sus producciones son de la siguiente
+                        forma:
+
+                    </p>
+                    <p style="text-align: center;">
+                        A → aα
+                    </p>
+                    <p>
+                        <li>A es una variable (símbolo no terminal).</li>
+                        <li>a es un símbolo terminal.</li>
+                        <li>α es una cadena de símbolos formada por variables.</li>
+                        <br>En resumen, cada producción debe comenzar con un terminal, seguido opcionalmente por una
+                        secuencia de no terminales.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Características principales</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        <b>Terminal primero:</b><br> La producción debe comenzar con un símbolo terminal, seguido de una
+                        secuencia de no terminales.
+                    </p>
+                    <p>
+                        <b>Cadena de no terminales:</b><br> Después del primer terminal, puede haber una cadena de no
+                        terminales (o puede ser vacía).
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Ejemplo de conversión a la Forma Normal de Greibach</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Supongamos que tenemos la siguiente gramática que no está en la forma normal de Greibach:
+                    </p>
+                    <p>
+                        <li>S → AB</li>
+                        <li>A → a∣ϵ</li>
+                        <li>B → b</li>
+                    </p>
+                    <br>
+                    <p>
+                        <b>Pasos para convertir a la FNG:</b>
+                    </p>
+                    <p>
+                        <b>Paso 1: </b>Eliminar las producciones ϵ.<br>
+                        En primer lugar, debemos eliminar las producciones vacías. Esto implica generar nuevas
+                        producciones que cubran el caso cuando A se deriva a ϵ.
+                        <br>
+                        Entonces, obtenemos:
+                        <li>S → AB∣B</li>
+                        <li>A → a</li>
+                        <li>B → b</li>
+                    </p><br>
+                    <p>
+                        <b>Paso 2: </b>Convertir las producciones a la forma A→aα.<br>
+                        Ahora, debemos asegurarnos de que cada producción tenga la forma de la FNG. En este caso, ya
+                        tenemos S→AB y S→B, lo que no está en la forma adecuada. Vamos a ajustar las producciones para
+                        que comiencen con un terminal.
+                        <br>
+                        Para la producción S→AB, observamos que A y B son no terminales, pero no empieza con un
+                        terminal. Necesitamos que la producción comience con un terminal. Para hacer esto, podemos
+                        reemplazar A y B con sus propias producciones. De la siguiente forma:
+                        <li>S → aB</li>
+                        <li>S → b</li>
+                        <li>A → a</li>
+                        <li>B → b</li>
+                    </p><br>
+                    <p>
+                        <b>Paso 3: </b>Revisión final: Ahora la gramática tiene todas sus producciones en la forma de la
+                        FNG.
+                        <li>S → aB∣b</li>
+                        <li>A → a</li>
+                        <li>B → b</li>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chess-bishop me-1"></i>
+                    <b>Actividad 1.8</b>
+                </div>
+                <div class="card-body">
+                    <!-- Actividad Ardora -->
+                    <div id="ardoraMain">
+                        <div id="ardoraEnu"><SPAN style="font-size:12px;color:#000000">debes relacionar en esta
+                                actividad debes relacionar
+                                de la columna a con las definiciones de la columna b que tiene definiciones temas de
+                                automatas finitos
+                                determinitas y no deterministas correspondiente</SPAN></div>
+                        <div id="ardoraAct">
+                            <div id="tableL">
+                                <div class="cell">
+                                    <div id="buttonUpLeft" class="butt"><canvas id="bUpLCanvas" width="260px"
+                                            height="40px"></canvas></div>
+                                    <div id="contenL"></div>
+                                    <div id="buttonDownLeft" class="butt"><canvas id="bDownLCanvas" width="260px"
+                                            height="40px"></canvas></div>
+                                </div>
+                            </div>
+                            <div id="tableR">
+                                <div class="cell">
+                                    <div id="buttonUpRight" class="butt"><canvas id="bUpRCanvas" width="260px"
+                                            height="40px"></canvas></div>
+                                    <div id="contenR"></div>
+                                    <div id="buttonDownRight" class="butt"><canvas id="bDownRCanvas" width="260px"
+                                            height="40px"></canvas></div>
+                                </div>
+                            </div>
+                            <canvas id="ardoraActCanvas" width="2px" height="2px"></canvas>
+                        </div>
+                        <div id="ardoraTab">
+                            <canvas id="ardoraTabCanvas" width="70" height="49"></canvas>
+                            <div id="buttonOk"><canvas id="buttonOkCanvas" width="70" height="70"></canvas></div>
+                        </div>
+                    </div>
+                    <div id="ardoraAlumSCORM">
+                        <p></p>
+                    </div>
+                    <!-- Fin Actividad Ardora -->
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<!-- Fin del Contenido -->
+{% endblock %}

@@ -1,0 +1,266 @@
+{% extends "layout.html" %}
+
+
+{% block css_js %}
+<!-- CSS y Js de Ardora -->
+<link type="text/css" href="{{url_for('static', filename='css/ardora/ardoraCompleta.css')}}" rel="stylesheet" />
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/jquery.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/jquery-ui.min.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/jquery.ui.touch-punch.min.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/ardoraScorm.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/ardoraTab.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/ardoraCompletaCFG.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/ardoraCompleta.js')}}"></script>
+{% endblock %}
+
+
+{% block active %}
+<div class="list-group" id="myList" role="tablist">
+    <a class="nav-link" href="{{ url_for('nivel1_1') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Conceptos introductorios
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_2') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Lenguajes Formales
+    </a>
+    <a class="nav-link active" href="{{ url_for('nivel1_3') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Expresiones Regulares
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_4') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Gramáticas formales
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_5') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Caracterización de una Gramática
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_6') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Jerarquía de Chomsky
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_7') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Forma Normal de Chomsky
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_8') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Forma Normal de Greibach
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_9') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Árboles de derivación
+    </a>
+    <a class="nav-link" href="{{ url_for('examen_1') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Examen Nivel 1
+    </a>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<!-- Contenido -->
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Expresiones Regulares</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Nivel 1: Gramáticas Formales en la Computación</li>
+            </ol>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Expresión Regular</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Es una secuencia de caracteres que define un patrón de búsqueda. Este patrón se puede utilizar
+                        para buscar, reemplazar o validar texto dentro de cadenas de caracteres. Las expresiones
+                        regulares son muy poderosas y se utilizan en muchos lenguajes de programación y herramientas
+                        para tareas como la validación de entradas, la búsqueda de patrones o la manipulación de texto.
+                    </p><br>
+                    <p>
+                        <b>¿Para que sirve?</b>
+                    </p>
+                    <p>
+                        <b>Buscar patrones en texto:</b> Se pueden usar para encontrar coincidencias exactas o
+                        aproximadas
+                        dentro de cadenas de texto. Por ejemplo, se puede buscar todas las direcciones de correo
+                        electrónico dentro de un texto largo.
+                        <br>
+                        <b>Reemplazar texto:</b> Se pueden utilizar para reemplazar una parte del texto que coincide con
+                        un patrón por otro texto. Esto es útil para hacer modificaciones masivas en cadenas de texto o
+                        archivos.
+                        <br>
+                        <b>Extracción de información:</b> Permiten extraer partes específicas de una cadena que
+                        coinciden
+                        con un patrón, como extraer números de teléfono o URLs de un texto.
+                    </p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Componentes Básicos de una Expresión Regular</b>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-book me-1"></i>
+                            Caracteres Literales
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                Son los caracteres tal cual aparecen en el texto.
+                            </p>
+                            <p><b>Ejemplo:</b><br>
+                                ( a ) buscaría la letra a.
+                                <br>
+                                ( 123 ) buscaría la secuencia 123.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-book me-1"></i>
+                            Metacaracteres
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                Son caracteres especiales con significados especiales en las expresiones regulares, que
+                                permiten crear patrones más complejos.
+                            </p>
+                            <p>
+                                <b>Ejemplo:</b><br>
+                                ( . ): Coincide con cualquier carácter (excepto saltos de línea). Por ejemplo, a.b
+                                coincidiría con acb, abb, etc.
+                            </p>
+                            <p>
+                                ( ^ ): Indica el inicio de una cadena. Por ejemplo, ^a coincide con cualquier cadena que
+                                comience con a.
+                            </p>
+                            <p>
+                                ( $ ): Indica el final de una cadena. Por ejemplo, a$ coincide con cualquier cadena que
+                                termine en a.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-book me-1"></i>
+                            Cuantificadores
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                Permiten definir cuántas veces debe repetirse un patrón.
+                            </p>
+                            <br>
+                            <p><b>Ejemplo:</b> <br>
+                                ( * ): Coincide con cero o más repeticiones del patrón anterior. Por ejemplo, a*
+                                coincide
+                                con cadenas como "", a, aa, aaa, etc.
+                            </p>
+                            <p>
+                                ( + ): Coincide con una o más repeticiones del patrón anterior. Por ejemplo, a+ coincide
+                                con
+                                a, aa, aaa, pero no con "".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-book me-1"></i>
+                            Clases de caracteres
+                        </div>
+                        <div class="card-body">
+                            <p><b>Ejemplo:</b> <br>
+                                ( \d ): Coincide con cualquier dígito, equivalente a [0-9].
+                            </p>
+                            <p>
+                                ( \w ): Coincide con cualquier carácter alfanumérico (letras, números y guión bajo),
+                                equivalente a [a-zA-Z0-9_].
+                            </p>
+                            <p>
+                                ( \s ): Coincide con cualquier espacio en blanco (espacios, tabulaciones, saltos de línea).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Ejemplos de Expresiones Regulares</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        <b>Validación de un correo electrónico: </b>
+                        <br>
+                        Una expresión regular para validar un correo electrónico
+                        básico podría ser:
+                    </p>
+                    <p>
+                        [a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}
+                    </p><br>
+                    <p>
+                        <b>Buscar una fecha en formato dd/mm/yyyy: </b>
+                        <br>
+                        Una expresión regular para una fecha en formato
+                        día/mes/año podría ser:
+                    </p>
+                    <p>
+                        \d{2}/\d{2}/\d{4}
+                    </p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chess-bishop me-1"></i>
+                    <b>Actividad 1.3</b>
+                </div>
+                <div class="card-body">
+                    <!-- Actividad Ardora -->
+                    <div id="ardoraMain">
+                        <div id="ardoraEnu"><SPAN style="font-size:12px;color:#000000">Debes completar todas las frases
+                                con la respuesta
+                                correcta correspondiente</SPAN></div>
+                        <div id="ardoraAct">
+                            <canvas id="ardoraActCanvas" width="2px" height="2px"></canvas>
+                            <canvas id="ardoraActCanvasAnim" width="2px" height="2px"></canvas>
+                        </div>
+                        <div id="ardoraTab">
+                            <div tabindex="0" id="buttonOk"><canvas id="buttonOkCanvas" width="70" height="70"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ardoraAlumSCORM">
+                        <p></p>
+                    </div>
+                    <!-- Fin Actividad Ardora -->
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<!-- Fin del Contenido -->
+{% endblock %}

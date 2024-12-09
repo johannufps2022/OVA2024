@@ -1,0 +1,216 @@
+{% extends "layout.html" %}
+
+
+{% block css_js %}
+<!-- CSS y Js de Ardora -->
+<link type="text/css" href="{{url_for('static', filename='css/ardora/1_9/ardoraTest.css')}}" rel="stylesheet" />
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_9/jquery.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_9/jquery-ui.min.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_9/jquery.ui.touch-punch.min.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_9/ardoraScorm.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_9/ardoraTab.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_9/ardoraTest.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_9/ardoraTestCFG.js')}}"></script>
+{% endblock %}
+
+
+{% block active %}
+<div class="list-group" id="myList" role="tablist">
+    <a class="nav-link" href="{{ url_for('nivel1_1') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Conceptos introductorios
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_2') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Lenguajes Formales
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_3') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Expresiones Regulares
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_4') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Gramáticas formales
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_5') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Caracterización de una Gramática
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_6') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Jerarquía de Chomsky
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_7') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Forma Normal de Chomsky
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_8') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Forma Normal de Greibach
+    </a>
+    <a class="nav-link active" href="{{ url_for('nivel1_9') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Árboles de derivación
+    </a>
+    <a class="nav-link" href="{{ url_for('examen_1') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Examen Nivel 1
+    </a>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<!-- Contenido -->
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Árboles de Derivación</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Nivel 1: Gramáticas Formales en la Computación</li>
+            </ol>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Árboles de Derivación en Gramáticas Formales</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Un árbol de derivación es una estructura en la que cada nodo representa una aplicación de una
+                        producción de la gramática, y las hojas del árbol representan los símbolos terminales de la
+                        cadena derivada. El árbol muestra cómo una secuencia de símbolos no terminales se transforma en
+                        una secuencia de símbolos terminales.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Elementos de un Árbol de Derivación</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        <b>1. Nodo raíz: </b>Representa el símbolo de inicio de la gramática (generalmente S).
+                        <br><br>
+                        <b>2. Nodos internos: </b>Representan los no terminales, que se expanden mediante las
+                        producciones de la gramática.
+                        <br><br>
+                        <b>3. Hojas: </b>Son los terminales que conforman la cadena final generada.
+                        <br><br>
+                        <b>4. Aristas: </b>Conectan los nodos entre sí, representando la relación entre un no terminal y
+                        sus derivaciones.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Ejemplo:</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Supongamos que tenemos la siguiente gramática:
+                    </p>
+                    <p>
+                        S→AB
+                        <br>
+                        A→a
+                        <br>
+                        B→b
+                    </p>
+                    <p>
+                        Queremos derivar la cadena ab.
+                        <li><b>Paso 1: </b>Comenzamos con el símbolo inicial S.</li>
+                        <li><b>Paso 2: </b>Aplicamos la producción S → AB.</li>
+                        <li><b>Paso 3: </b>Derivamos A utilizando A → a y B utilizando B → b.</li>
+                    </p>
+                    <p>
+                        La derivación completa sería:
+                        <br>
+                        <b>S ⇒ AB ⇒ aB ⇒ ab</b>
+                    </p>
+                    <br>
+                    <p>
+                        <b>El árbol de derivación correspondiente es:</b><br>
+                        <img src="{{url_for('static', filename='img/arbol_img.png')}}" alt="">
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Cómo Leer un Árbol de Derivación</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        <li>Comienza en la raíz ( S ) y sigue los caminos hacia las hojas.</li>
+                        <li>Cada nodo interno corresponde a una aplicación de una regla de producción.</li>
+                        <li>Las hojas contienen los símbolos terminales de la cadena derivada.</li>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Importancia de los Árboles de Derivación</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        <b>1. Análisis sintáctico: </b><br>En la teoría de compiladores, los árboles de derivación se
+                        utilizan para construir el análisis sintáctico de un programa, lo que es clave para la
+                        comprensión de su estructura.
+                        <br><br>
+                        <b>2. Desarrollo de algoritmos: </b><br>Ayudan a desarrollar algoritmos de análisis sintáctico
+                        como
+                        el análisis descendente o ascendente.
+                        <br><br>
+                        <b>3. Visualización: </b><br>Permiten representar visualmente cómo se deriva una cadena, lo que
+                        facilita el entendimiento de la gramática y las cadenas generadas.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chess-bishop me-1"></i>
+                    <b>Actividad 1.9</b>
+                </div>
+                <div class="card-body">
+                    <!-- Actividad Ardora -->
+                    <div id="ardoraMain">
+                        <div id="ardoraEnu"><SPAN style="font-size:12px;color:#000000">Responde las preguntas de (falso
+                                y
+                                verdadero)correctamente del tema arbol de derivacion</SPAN></div>
+                        <div id="ardoraAct">
+                            <div id="ardoraTag"></div>
+                            <div id="ardoraChecks"></div>
+                            <canvas id="ardoraActCanvas" width="2px" height="2px"></canvas>
+                        </div>
+                        <div id="ardoraTab">
+                            <div id="buttonOk" tabindex="0"><canvas id="buttonOkCanvas" width="70" height="70"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ardoraAlumSCORM">
+                        <p></p>
+                    </div>
+                    <!-- Fin Actividad Ardora -->
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<!-- Fin del Contenido -->
+{% endblock %}

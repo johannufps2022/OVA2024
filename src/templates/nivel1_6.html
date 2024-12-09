@@ -1,0 +1,189 @@
+{% extends "layout.html" %}
+
+
+{% block css_js %}
+<!-- CSS y Js de Ardora -->
+<link type="text/css" href="{{url_for('static', filename='css/ardora/ardoraAfor.css')}}" rel="stylesheet" />
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_6/jquery.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_6/jquery-ui.min.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_6/jquery.ui.touch-punch.min.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_6/ardoraScorm.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_6/ardoraTab.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_6/ardoraAfor.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_6/ardoraAforCFG.js')}}"></script>
+{% endblock %}
+
+
+{% block active %}
+<div class="list-group" id="myList" role="tablist">
+    <a class="nav-link" href="{{ url_for('nivel1_1') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Conceptos introductorios
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_2') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Lenguajes Formales
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_3') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Expresiones Regulares
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_4') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Gramáticas formales
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_5') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Caracterización de una Gramática
+    </a>
+    <a class="nav-link active" href="{{ url_for('nivel1_6') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Jerarquía de Chomsky
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_7') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Forma Normal de Chomsky
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_8') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Forma Normal de Greibach
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_9') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Árboles de derivación
+    </a>
+    <a class="nav-link" href="{{ url_for('examen_1') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Examen Nivel 1
+    </a>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<!-- Contenido -->
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Jerarquía de Chomsky</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Nivel 1: Gramáticas Formales en la Computación</li>
+            </ol>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Jerarquía de Chomsky</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Es una clasificación de los lenguajes formales basada en el poder de las gramáticas que los
+                        generan. Fue propuesta por el lingüista y matemático Noam Chomsky en 1956 para entender mejor la
+                        relación entre los tipos de gramáticas y los autómatas que pueden reconocer los lenguajes que
+                        describen. La jerarquía consta de cuatro niveles, de menor a mayor complejidad, y se usa para
+                        clasificar los lenguajes según su capacidad de expresión y la potencia de las máquinas
+                        (autómatas) necesarias para reconocerlos.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Los Cuatro Niveles de la Jerarquía de Chomsky</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Los cuatro tipos de gramáticas en la jerarquía de Chomsky, de
+                        menor a mayor complejidad, son:
+
+                        <br><br><b>1. </b>Gramáticas Tipo 3 (Gramáticas Regulares)
+                        <br><b>2. </b>Gramáticas Tipo 2 (Gramáticas Libres de Contexto)
+                        <br><b>3. </b>Gramáticas Tipo 1 (Gramáticas Sensibles al Contexto)
+                        <br><b>4. </b>Gramáticas Tipo 0 (Gramáticas No Restringidas)
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Tabla de la Jerarquía de Chomsky</b>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Tipo de Gramática</th>
+                                <th>Tipo de Lenguaje Generado</th>
+                                <th>Autómata Asociado</th>
+                                <th>Ejemplo de Lenguaje</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Tipo 3</strong>: Gramáticas Regulares</td>
+                                <td>Lenguajes Regulares</td>
+                                <td>Autómata Finito</td>
+                                <td>Expresiones regulares, cadenas de texto simples</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tipo 2</strong>: Gramáticas Libres de Contexto</td>
+                                <td>Lenguajes Libres de Contexto</td>
+                                <td>Autómata de Pila</td>
+                                <td>Lenguajes de programación, expresiones algebraicas</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tipo 1</strong>: Gramáticas Sensibles al Contexto</td>
+                                <td>Lenguajes Sensibles al Contexto</td>
+                                <td>Máquina de Turing (con restricción de espacio)</td>
+                                <td>Lenguajes complejos que requieren contexto</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tipo 0</strong>: Gramáticas No Restringidas</td>
+                                <td>Lenguajes Recursivamente Enumerables</td>
+                                <td>Máquina de Turing</td>
+                                <td>Lenguajes muy complejos, como algunos problemas no decidibles</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chess-bishop me-1"></i>
+                    <b>Actividad 1.6</b>
+                </div>
+                <div class="card-body">
+                    <!-- Actividad Ardora -->
+                    <div id="ardoraMain">
+                        <div id="ardoraEnu"><SPAN style="font-size:12px;color:#000000">descubre cada palabara del
+                                ahorcador
+                                correctamente:</SPAN></div>
+                        <div id="ardoraAct">
+                            <div id="ardoraQuest"></div>
+                            <div id="ardoraImage"></div>
+                            <canvas id="ardoraActCanvas" width="2px" height="2px"></canvas>
+                        </div>
+                        <div id="ardoraTab">
+                        </div>
+                    </div>
+                    <div id="ardoraAlumSCORM">
+                        <p></p>
+                    </div>
+                    <!-- Fin Actividad Ardora -->
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<!-- Fin del Contenido -->
+{% endblock %}

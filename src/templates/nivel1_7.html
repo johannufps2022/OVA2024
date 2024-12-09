@@ -1,0 +1,232 @@
+{% extends "layout.html" %}
+
+
+{% block css_js %}
+<!-- CSS y Js de Ardora -->
+<link type="text/css" href="{{url_for('static', filename='css/ardora/ardoraRel.css')}}" rel="stylesheet" />
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_7/jquery.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_7/jquery-ui.min.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_7/jquery.ui.touch-punch.min.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_7/ardoraScorm.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_7/ardoraTab.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_7/ardoraRel.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/1_7/ardoraRelCFG.js')}}"></script>
+{% endblock %}
+
+
+{% block active %}
+<div class="list-group" id="myList" role="tablist">
+    <a class="nav-link" href="{{ url_for('nivel1_1') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Conceptos introductorios
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_2') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Lenguajes Formales
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_3') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Expresiones Regulares
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_4') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Gramáticas formales
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_5') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Caracterización de una Gramática
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_6') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Jerarquía de Chomsky
+    </a>
+    <a class="nav-link active" href="{{ url_for('nivel1_7') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Forma Normal de Chomsky
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_8') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Forma Normal de Greibach
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_9') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Árboles de derivación
+    </a>
+    <a class="nav-link" href="{{ url_for('examen_1') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Examen Nivel 1
+    </a>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<!-- Contenido -->
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Forma Normal de Chomsky</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Nivel 1: Gramáticas Formales en la Computación</li>
+            </ol>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Forma Normal de Chomsky (FNC)</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Es una representación estándar de una gramática libre de contexto (GFC) utilizada en la teoría
+                        de lenguajes formales y la teoría de autómatas. Se utiliza principalmente en el análisis y
+                        procesamiento de lenguajes formales, y su principal utilidad es simplificar la forma de las
+                        reglas de producción de una gramática.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Reglas de la Forma Normal de Chomsky</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Una gramática está en Forma Normal de Chomsky si cumple con las siguientes condiciones para
+                        todas sus reglas de producción:
+                    </p>
+                    <p>
+                        <b>1. </b>Las producciones son de la forma:
+                        <li>A → BC (donde A,B,C son variables, y B y C no son el símbolo de
+                            inicio).</li>
+                        <li>O bien, A → a (donde A es una variable y a es un terminal).</li>
+                    </p>
+                    <p>
+                        <b>2. </b>El símbolo de inicio S no debe aparecer en el lado derecho de ninguna producción, es
+                        decir, no puede haber una producción de la forma S → α, donde α contiene el símbolo S.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Características clave</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        <b>Producciones binarias:</b><br> Solo se permite una producción con exactamente dos variables
+                        en
+                        el lado derecho (A → BC).
+                    </p>
+                    <p>
+                        <b>Producciones terminales:</b><br> Solo se permite una producción con un solo terminal en el
+                        lado derecho (A → a).
+                    </p>
+                    <p>
+                        <b>Eliminación de producciones inútiles y epsilon:</b><br> En algunos casos, antes de llevar una
+                        gramática a la forma normal de Chomsky, es necesario eliminar producciones vacías ( ϵ ) y
+                        producciones unitarias (donde una variable produce otra directamente).
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Ejemplo de conversión a FNC</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Consideremos la siguiente gramática que no está en la forma normal de Chomsky:
+                    </p>
+                    <p>
+                        <li>S → AB</li>
+                        <li>A → a∣ϵ</li>
+                        <li>B → b</li>
+                    </p>
+                    <p>
+                        <b>Paso 1: Eliminar epsilon-producciones.</b><br>
+                        Primero eliminamos la producción A → ϵ. Esto implica que debemos agregar nuevas producciones que
+                        cubran el caso en que A no se derive en nada. Las nuevas producciones serían:
+                        <li>S → AB∣B</li>
+                        <li>A → a</li>
+                        <li>B → b</li>
+                    </p>
+                    <p>
+                        <b>Paso 2: Transformación a la forma estándar.</b><br>
+                        Ahora transformamos las producciones para que tengan la forma A → BC o A → a. Para la producción
+                        S→AB∣B, podemos reemplazar la producción S→B por S→XB, donde
+                        X es una nueva variable que produce A.
+                        <br>
+                        Entonces, las producciones finales serían:
+                        <li>S → AB∣XB</li>
+                        <li>A → a</li>
+                        <li>B → b</li>
+                        <li>X → A</li>
+                    </p>
+                    <p>
+                        <b>Ahora la gramática está en la Forma Normal de Chomsky.</b><br>
+                        La Forma Normal de Chomsky es útil para algoritmos de análisis sintáctico, como el algoritmo CYK
+                        (Cocke-Younger-Kasami), que es eficiente para el análisis de lenguajes libres de contexto.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chess-bishop me-1"></i>
+                    <b>Actividad 1.7</b>
+                </div>
+                <div class="card-body">
+                    <!-- Actividad Ardora -->
+                    <div id="ardoraMain">
+                        <div id="ardoraEnu"><SPAN style="font-size:12px;color:#000000">debes relacionar en esta
+                                actividad debes relacionar
+                                de la columna a con las definiciones de la columna b que tiene definiciones temas de
+                                automatas finitos
+                                determinitas y no deterministas correspondiente</SPAN></div>
+                        <div id="ardoraAct">
+                            <div id="tableL">
+                                <div class="cell">
+                                    <div id="buttonUpLeft" class="butt"><canvas id="bUpLCanvas" width="260px"
+                                            height="40px"></canvas></div>
+                                    <div id="contenL"></div>
+                                    <div id="buttonDownLeft" class="butt"><canvas id="bDownLCanvas" width="260px"
+                                            height="40px"></canvas></div>
+                                </div>
+                            </div>
+                            <div id="tableR">
+                                <div class="cell">
+                                    <div id="buttonUpRight" class="butt"><canvas id="bUpRCanvas" width="260px"
+                                            height="40px"></canvas></div>
+                                    <div id="contenR"></div>
+                                    <div id="buttonDownRight" class="butt"><canvas id="bDownRCanvas" width="260px"
+                                            height="40px"></canvas></div>
+                                </div>
+                            </div>
+                            <canvas id="ardoraActCanvas" width="2px" height="2px"></canvas>
+                        </div>
+                        <div id="ardoraTab">
+                            <canvas id="ardoraTabCanvas" width="70" height="49"></canvas>
+                            <div id="buttonOk"><canvas id="buttonOkCanvas" width="70" height="70"></canvas></div>
+                        </div>
+                    </div>
+                    <div id="ardoraAlumSCORM">
+                        <p></p>
+                    </div>
+                    <!-- Fin Actividad Ardora -->
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<!-- Fin del Contenido -->
+{% endblock %}

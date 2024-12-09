@@ -1,0 +1,212 @@
+{% extends "layout.html" %}
+
+
+{% block css_js %}
+<!-- CSS y Js de Ardora -->
+<link type="text/css" href="{{url_for('static', filename='css/ardora/ardoraUnir.css')}}" rel="stylesheet" />
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/jquery.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/jquery-ui.min.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/jquery.ui.touch-punch.min.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/ardoraUnirCFG.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/ardoraScorm.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/ardoraUnir.js')}}"></script>
+<script language="javascript" type="text/javascript"
+    src="{{url_for('static', filename='js/ardora/ardoraTab.js')}}"></script>
+{% endblock %}
+
+
+{% block active %}
+<div class="list-group" id="myList" role="tablist">
+    <a class="nav-link active" href="{{ url_for('nivel1_1') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Conceptos introductorios
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_2') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Lenguajes Formales
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_3') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Expresiones Regulares
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_4') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Gramáticas formales
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_5') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Caracterización de una Gramática
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_6') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Jerarquía de Chomsky
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_7') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Forma Normal de Chomsky
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_8') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Forma Normal de Greibach
+    </a>
+    <a class="nav-link" href="{{ url_for('nivel1_9') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Árboles de derivación
+    </a>
+    <a class="nav-link" href="{{ url_for('examen_1') }}">
+        <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+        Examen Nivel 1
+    </a>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<!-- Contenido -->
+
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Conceptos Introductorios</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Nivel 1: Gramáticas Formales en la Computación</li>
+            </ol>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Alfabeto</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Un alfabeto es un conjunto finito de símbolos o caracteres. Estos símbolos son los
+                        bloques
+                        básicos a partir de los cuales se pueden construir cadenas. En el contexto de la
+                        teoría
+                        formal de lenguajes, un alfabeto se denota generalmente por la letra
+                        Σ (sigma) y contiene los símbolos que se pueden utilizar para formar cadenas.
+                    </p>
+                    <br>
+                    <p>
+                        Ejemplos de alfabetos:
+                    </p>
+                    <p>
+                        Σ={a,b} es un alfabeto que contiene dos símbolos: "a" y "b".
+                        <br>
+                        Σ={0,1} es el alfabeto binario, usado en computación y sistemas digitales.
+                        <br>
+                        Σ={a,b,c,…,z} es el alfabeto de las letras minúsculas del alfabeto latino.
+                    </p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Cadena</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Una cadena es una secuencia finita de símbolos extraídos de un alfabeto. Por
+                        ejemplo, si
+                        tenemos el alfabeto Σ = {a,b}, algunas posibles cadenas serían:
+                        <br>
+                        "a"
+                        <br>
+                        "ab"
+                        <br>
+                        "bba"
+                        <br>
+                        "aaaab"
+                    </p>
+
+                    <p>
+                        En notación formal, si
+                        Σ = {a,b}, una cadena es simplemente una secuencia de símbolos como
+                        w = aab, donde cada símbolo pertenece al conjunto Σ.
+                        Una cadena puede ser también vacía, y la cadena vacía se denota generalmente por ϵ o
+                        λ.
+                    </p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-1"></i>
+                    <b>Lenguaje</b>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Un lenguaje es un conjunto de cadenas sobre un alfabeto determinado. Es decir, un
+                        lenguaje es una colección de secuencias de símbolos que son válidas según ciertas
+                        reglas
+                        o criterios. Los lenguajes pueden ser finitos o infinitos, dependiendo de cuántas
+                        cadenas contenga.
+                    </p>
+                    <br>
+                    <p>
+                        Ejemplos de lenguajes:
+                    </p>
+                    <p>
+                        Si Σ={a,b}, un lenguaje puede ser el conjunto de todas las cadenas que contienen al
+                        menos un "a", como:
+                        <br>
+                        L={a,ab,ba,aab,baa,abba,…}
+                        <br><br>
+                        Otro lenguaje puede ser el conjunto de todas las cadenas de longitud finita formadas
+                        con
+                        los símbolos a y b:
+                        <br>
+                        L={ϵ,a,b,aa,ab,ba,bb,…}
+                        <br><br>
+                        Un lenguaje puede ser regulador o libre, dependiendo de las reglas que definan qué
+                        cadenas son aceptadas.
+                    </p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chess-bishop me-1"></i>
+                    <b>Actividad 1.1</b>
+                </div>
+                <div class="card-body">
+                    <!-- Actividad Ardora -->
+                    <div id="ardoraMain">
+                        <div id="ardoraEnu"></div>
+                        <div id="ardoraAct">
+                            <div id="table1">
+                                <div class="cell">
+                                    <div id="conten1_1" class="conten"></div>
+                                    <div id="conten1_2" class="conten"></div>
+                                    <div id="conten1_3" class="conten"></div>
+                                </div>
+                            </div>
+                            <div id="table2">
+                                <div class="cell">
+                                    <div id="conten2_1" class="conten"></div>
+                                    <div id="conten2_2" class="conten"></div>
+                                    <div id="conten2_3" class="conten"></div>
+                                </div>
+                            </div>
+                            <canvas id="joinCanvas" width="600px" height="400px"></canvas>
+                            <canvas id="joinCanvasDo" width="600px" height="400px"></canvas>
+                            <canvas id="ardoraActCanvas" width="2px" height="2px"></canvas>
+                        </div>
+                        <div id="ardoraTab">
+                            <div id="buttonOk"><canvas id="buttonOkCanvas" width="70" height="70"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fin Actividad Ardora -->
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Fin del Contenido -->
+{% endblock %}
